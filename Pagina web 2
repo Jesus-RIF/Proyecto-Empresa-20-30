@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantel Azteca | Análisis del Sector Asegurador</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hC+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #FFFACD; /* Lemon Chiffon - un amarillo suave y alegre */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+            margin: 0;
+            padding-top: 56px; /* Para que el contenido no quede debajo del navbar fijo */
+            /* Imagen de fondo añadida */
+  background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+        }
+
+
+        /* Contenedor principal para el contenido */
+        .container-overlay {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            padding: 24px;
+            border-radius: 15px; /* Bordes más redondeados */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+            max-width: 1200px; /* Ancho máximo para mejor legibilidad */
+        }
+
+
+        /* Títulos principales */
+        h1 {
+            color: #FF6F61; /* Coral vibrante */
+            font-weight: 900;
+            text-shadow: 2px 2px #FFD700; /* Sombra de texto dorada */
+            margin-bottom: 25px;
+            animation: bounceIn 1s ease-out; /* Animación de entrada */
+        }
+
+
+        h2 {
+            color: #FF8C00; /* Naranja oscuro */
+            font-weight: 800;
+            border-bottom: 3px solid #FFD700; /* Borde inferior dorado */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: flex; /* Para alinear el icono con el texto */
+            align-items: center;
+        }
+        h2 i {
+            margin-right: 10px; /* Espacio entre icono y texto */
+        }
+
+
+        h5 {
+            color: #FF6F61; /* Mismo coral vibrante */
+            font-weight: 700;
+        }
+
+
+        /* Navbar personalizado */
+        .navbar-custom {
+            background-color: #FFD700; /* Dorado brillante */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Barra de navegación fija */
+            width: 100%;
+            top: 0;
+            z-index: 1030; /* Asegura que esté por encima de otros elementos */
+        }
+        .navbar-brand strong {
+            color: #8B0000 !important; /* Rojo oscuro para contraste */
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+        }
+
+
+        /* Tarjetas (cards) */
+        .card {
+            border: none;
+            border-radius: 15px; /* Más redondeado */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+            overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02); /* Efecto más pronunciado al pasar el mouse */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .card-body {
+            padding: 20px;
+            background: linear-gradient(to top, #ffeebb, #ffffff); /* Degradado suave */
+        }
+
+
+        /* Botón "¡Lo Quiero!" */
+        .btn-want-it {
+            background: linear-gradient(45deg, #FF6F61, #FFD700); /* Degradado coral a dorado */
+            border: none;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            border-radius: 50px; /* Botón píldora */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn-want-it:hover {
+            transform: scale(1.05) rotate(2deg); /* Efecto giratorio */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #FFD700, #FF6F61); /* Invertir degradado */
+        }
+
+
+        /* Checkboxes y formulario */
+        .form-check-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+            cursor: pointer; /* Indica que es clickeable */
+        }
+        .form-check-input:checked + .form-check-label {
+            color: #007bff; /* Azul para el checkbox seleccionado */
+            text-decoration: underline;
+        }
+        .form-check {
+            margin-bottom: 12px;
+            transition: transform 0.2s ease;
+        }
+        .form-check:hover {
+            transform: translateX(5px); /* Pequeño movimiento al pasar el mouse */
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #FFD700; /* Borde dorado */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .btn-submit-opinion {
+            background-color: #4CAF50; /* Verde brillante */
+            border-color: #4CAF50;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-submit-opinion:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+
+        /* Footer personalizado */
+        .custom-footer {
+            background-color: #FFD700; /* Dorado brillante */
+            color: #8B0000; /* Rojo oscuro */
+            text-align: center;
+            font-size: 1.1em;
+            padding: 20px 0;
+            margin-top: 40px;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Animaciones */
+        @keyframes bounceIn {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            0% {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+            20% {
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            40% {
+                transform: scale3d(0.9, 0.9, 0.9);
+            }
+            60% {
+                opacity: 1;
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+            80% {
+                transform: scale3d(0.97, 0.97, 0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+    </style></head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.fundacionazteca.org/media/s23dslma/img_logo_plantel.png" alt="Logo" width="45" height="32" class="d-inline-block align-text-top me-2">
+                <strong class="text-white">Plantel Azteca 🎓</strong> </a>
+        </div>
+    </nav>
+
+
+    <div class="container container-overlay">
+        <h1 class="text-center mb-5"><i class="fas fa-lightbulb"></i> Análisis del Sector Asegurador: Retos y Oportunidades <i class="fas fa-star"></i></h1> <h2 class="mt-4 mb-4"><i class="fas fa-exclamation-triangle"></i> Descifrando los Misterios del Mercado Asegurador</h2>
+       
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
+           
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://thumbs.dreamstime.com/b/sello-de-acceso-limitado-aislado-en-fondo-blanco-176265448.jpg" class="card-img-top" alt="Acceso Limitado">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-lock"></i> Acceso Limitado:</h5>
+                        <p class="card-text">¡Pocos tienen seguro! Una gran parte de la gente no conoce ni tiene acceso a coberturas básicas. ¡Es hora de cambiar eso!</p>
+                        <a href="#" class="btn btn-want-it btn-sm w-100 mt-2">¡Lo Quiero!</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.shutterstock.com/image-vector/ost-icon-editable-stroke-expense-600nw-2511547317.jpg" class="card-img-top" alt="Aumento de Costos">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-dollar-sign"></i> Costos que se Disparan:</h5>
+                        <p class="card-text">Reparaciones caras, médicos costosos y más desastres naturales hacen que las aseguradoras paguen mucho. ¡Podemos ser la solución!</p>
+                        <a href="#" class="btn btn-want-it btn-sm w-100 mt-2">¡Lo Quiero!</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKi6G40VyodgbVlgwHkjrLH6vkgs0QjvEjRw&s" class="card-img-top" alt="Problemas Cliente">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-frown"></i> ¡Clientes Enojados!:</h5>
+                        <p class="card-text">Incumplimiento de contratos, cancelaciones inesperadas... ¡Hay muchas quejas! Necesitamos darles confianza y claridad.</p>
+                        <a href="#" class="btn btn-want-it btn-sm w-100 mt-2">¡Lo Quiero!</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.gob.mx/cms/uploads/action_program/main_image/14859/post_Transparencia.jpg" class="card-img-top" alt="Transparencia">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-magnifying-glass"></i> ¿Dónde está la Transparencia?:</h5>
+                        <p class="card-text">Precios ocultos y servicios confusos, ¡especialmente en seguros de gastos médicos! ¡Hagamos todo cristalino!</p>
+                        <a href="#" class="btn btn-want-it btn-sm w-100 mt-2">¡Lo Quiero!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr class="my-5 border-3 border-warning"> <h3 class="mb-4 text-center" style="color: #FF8C00;"><i class="fas fa-poll-h"></i> ¡Tu Opinión Cuenta Mucho! ¿Cuál es el mayor reto?</h3>
+        <form>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="acceso" id="checkAcceso">
+                <label class="form-check-label" for="checkAcceso">
+                    <i class="fas fa-user-friends"></i> Que más gente tenga acceso a seguros.
+                </label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="costos" id="checkCostos">
+                <label class="form-check-label" for="checkCostos">
+                    <i class="fas fa-chart-line"></i> Controlar los altos costos de reclamaciones.
+                </label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="quejas" id="checkQuejas">
+                <label class="form-check-label" for="checkQuejas">
+                    <i class="fas fa-handshake-angle"></i> Mejorar la relación y confianza con los clientes.
+                </label>
+            </div>
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" value="transparencia" id="checkTransparencia">
+                <label class="form-check-label" for="checkTransparencia">
+                    <i class="fas fa-lightbulb"></i> ¡Que todo sea súper claro y transparente!
+                </label>
+            </div>
+
+
+            <div class="mb-4">
+                <label for="comentarios" class="form-label" style="font-weight: bold; color: #333;">¡Cuéntanos tu idea brillante! <i class="fas fa-comment-dots"></i></label>
+                <textarea class="form-control" id="comentarios" rows="4" placeholder="Describe brevemente tus pensamientos o sugerencias..."></textarea>
+            </div>
+           
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-submit-opinion btn-lg">¡Enviar mi Súper Opinión! <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+    <footer class="custom-footer">
+        <p class="mb-1"><strong>Plantel Azteca</strong></p>
+        <p class="mb-1">Av. Anillo Periférico Sur 4121, Fuentes del Pedregal, Tlalpan, C.P. 14140, CDMX.</p>
+        <p class="mb-0">Contacto: 55 1720 0000 | © 2025 Fundación Azteca.</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+</html>
+  
